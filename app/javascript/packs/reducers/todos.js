@@ -9,6 +9,12 @@ const todos = (state = [], action) => {
           completed: false
         }
       ]
+    case 'REGISTER_TODOS':
+      return [].concat(action.todos)
+    case 'DELETE_TODO':
+      return state.filter(todo =>
+        (todo.id !== action.id)
+      )
     case 'TOGGLE_TODO':
       return state.map(todo =>
         (todo.id === action.id) 

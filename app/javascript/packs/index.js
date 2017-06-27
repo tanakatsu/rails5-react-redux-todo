@@ -7,11 +7,12 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import todo from './reducers'
 import App from './components/App'
 
-let store = createStore(todo)
+let store = createStore(todo, applyMiddleware(thunk))
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
