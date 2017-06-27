@@ -9,8 +9,7 @@ class TodoList extends React.Component {
   }
 
   componentWillMount() {
-    const todos = [{id: 0, text: "hello", completed: false}];
-    this.props.loadTodosOnReady(todos);
+    this.props.loadTodosOnReady();
   }
 
   render() {
@@ -31,7 +30,7 @@ TodoList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       completed: PropTypes.bool.isRequired,
-      text: PropTypes.string.isRequired
+      title: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
   onTodoClick: PropTypes.func.isRequired,

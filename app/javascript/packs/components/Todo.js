@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Todo = ({ onTodoClick, onDeleteClick, completed, text }) => (
+const Todo = ({ onTodoClick, onDeleteClick, completed, title }) => (
   <li
     style={{
       textDecoration: completed ? 'line-through' : 'none'
     }}
   >
     <span onClick={onTodoClick}>
-    {text}
+    {title}
     </span>
 
     <button onClick={onDeleteClick}>Delete</button>
@@ -19,7 +19,7 @@ Todo.propTypes = {
   onTodoClick: PropTypes.func.isRequired,
   onDeleteClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired
 }
 
 export default Todo

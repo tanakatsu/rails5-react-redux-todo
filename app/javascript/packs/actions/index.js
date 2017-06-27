@@ -1,9 +1,9 @@
 let nextTodoId = 0
-export const addTodo = text => {
+export const addTodo = title => {
   return {
     type: 'ADD_TODO',
     id: nextTodoId++,
-    text
+    title
   }
 }
 
@@ -16,13 +16,23 @@ export const registerTodos = todos => {
   }
 }
 
-export const loadTodos = todos => {
+export const loadTodos = () => {
   return (dispatch, getState) => {
     dispatch(showLoading());
-    setTimeout(() => {
-      dispatch(registerTodos(todos))
+    fetch('/api/todos')
+    .then(response => {
+      // https://developer.mozilla.org/en-US/docs/Web/API/Body
+      return response.json()
+    })
+    .then(data => {
+      // console.log(data);
+      dispatch(registerTodos(data))
       dispatch(hideLoading());
-    }, 1000);
+    })
+    .catch(err => {
+      console.error(err);
+      dispatch(hideLoading());
+    })
   }
 }
 

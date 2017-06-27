@@ -27,8 +27,8 @@ const mapDispatchToProps = dispatch => {
     onDeleteClick: id => {
       dispatch(deleteTodo(id))
     },
-    loadTodosOnReady: (todos) => {
-      dispatch(loadTodos(todos))
+    loadTodosOnReady: () => {
+      dispatch(loadTodos())
     }
   }
 }
