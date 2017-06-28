@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { createTodoAsync } from '../actions'
 
 // React component using ES6 class definition
 // https://facebook.github.io/react/docs/state-and-lifecycle.html
@@ -22,7 +22,7 @@ class AddTodo extends React.Component {
             if (!input.value.trim()) {
               return
             }
-            this.props.dispatch(addTodo(input.value))
+            this.props.dispatch(createTodoAsync(input.value))
             input.value = ''
           }}
         >
