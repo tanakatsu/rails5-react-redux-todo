@@ -1,3 +1,5 @@
+import history from '../history'
+
 export const addTodo = (id, title) => {
   return {
     type: 'ADD_TODO',
@@ -27,6 +29,10 @@ export const createTodoAsync = title => {
       // console.log(data);
       dispatch(addTodo(data.id, data.title));
       dispatch(hideLoading());
+
+      // redirect
+      history.push('/') // This won't work with BrowserRouter
+      // dispatch(setRedirect('/')) // You have to change state to redirect with BrowserRouter
     })
     .catch(err => {
       console.error(err);
@@ -151,5 +157,18 @@ export const showLoading = () => {
 export const hideLoading = () => {
   return {
     type: 'HIDE_LOADING'
+  }
+}
+
+export const setRedirect = (path) => {
+  return {
+    type: 'SET_REDIRECT',
+    path: path
+  }
+}
+
+export const unsetRedirect = () => {
+  return {
+    type: 'UNSET_REDIRECT'
   }
 }

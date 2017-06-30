@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createTodoAsync } from '../actions'
+import { withRouter, NavLink, Redirect } from "react-router-dom"
+import { createTodoAsync, unsetRedirect } from '../actions'
+import history from '../history'
 
 // React component using ES6 class definition
 // https://facebook.github.io/react/docs/state-and-lifecycle.html
@@ -11,11 +13,16 @@ class AddTodo extends React.Component {
     // console.log(props);
   }
 
+  componentWillUnmount() {
+    // this.props.dispatch(unsetRedirect()); // Reset redirect
+  }
+
   render() {
     let input
 
     return (
       <div>
+        {/* this.props.routing && this.props.routing.redirect_to ? <Redirect to={this.props.routing.redirect_to} /> : null */}
         <form
           onSubmit={e => {
             e.preventDefault()
@@ -35,6 +42,7 @@ class AddTodo extends React.Component {
             Add Todo
           </button>
         </form>
+        <NavLink to="/" activeClassName="active">[Back]</NavLink>
       </div>
     )
   }
@@ -42,8 +50,9 @@ class AddTodo extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loading: state.loading
+    loading: state.loading,
+    routing: state.routing
   }
 }
 
-export default connect(mapStateToProps)(AddTodo)
+export default withRouter(connect(mapStateToProps)(AddTodo))

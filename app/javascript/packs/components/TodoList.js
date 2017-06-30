@@ -5,7 +5,7 @@ import Todo from './Todo'
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    // console.log(props);
   }
 
   componentWillMount() {
