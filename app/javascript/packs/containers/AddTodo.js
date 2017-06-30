@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, NavLink, Redirect } from "react-router-dom"
+import { withRouter, Link, Redirect } from "react-router-dom"
 import { createTodoAsync, unsetRedirect } from '../actions'
 import history from '../history'
 
@@ -42,7 +42,7 @@ class AddTodo extends React.Component {
             Add Todo
           </button>
         </form>
-        <NavLink to="/" activeClassName="active">[Back]</NavLink>
+        <Link to="/">[Back]</Link>
       </div>
     )
   }
