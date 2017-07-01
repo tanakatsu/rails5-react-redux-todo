@@ -1,5 +1,6 @@
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { toggleTodoAsync, deleteTodoAsync, loadTodosAsync } from '../actions'
+import * as actions from '../actions'
 import TodoList from '../components/TodoList'
 
 const getVisibleTodos = (todos, filter) => {
@@ -21,15 +22,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTodoClick: id => {
-      dispatch(toggleTodoAsync(id))
-    },
-    onDeleteClick: id => {
-      dispatch(deleteTodoAsync(id))
-    },
-    loadTodosOnReady: () => {
-      dispatch(loadTodosAsync())
-    }
+    actions: bindActionCreators(actions, dispatch)
   }
 }
 

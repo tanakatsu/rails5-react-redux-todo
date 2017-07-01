@@ -9,7 +9,7 @@ class TodoList extends React.Component {
   }
 
   componentWillMount() {
-    this.props.loadTodosOnReady();
+    this.props.actions.loadTodosAsync()
   }
 
   render() {
@@ -18,7 +18,7 @@ class TodoList extends React.Component {
     return (
       <ul>
       {todos.map(todo => (
-        <Todo key={todo.id} {...todo} onTodoClick={() => this.props.onTodoClick(todo.id)} onDeleteClick={() => this.props.onDeleteClick(todo.id)} />
+        <Todo key={todo.id} {...todo} onTodoClick={() => this.props.actions.toggleTodoAsync(todo.id)} onDeleteClick={() => this.props.actions.deleteTodoAsync(todo.id)} />
       ))}
       </ul>
     )
@@ -33,9 +33,7 @@ TodoList.propTypes = {
       title: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  onTodoClick: PropTypes.func.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
-  loadTodosOnReady: PropTypes.func.isRequired
+  actions: PropTypes.objectOf(PropTypes.func).isRequired
 }
 
 export default TodoList
