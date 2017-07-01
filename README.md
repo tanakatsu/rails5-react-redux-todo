@@ -1,24 +1,27 @@
-# README
+# rails5-react-redux-todo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a todo app using react and redux.
 
-Things you may want to cover:
+### Get started
 
-* Ruby version
+```
+$ bundle install
+$ rake db:migrate
+$ yarn install
+$ bin/webpack
+$ rails s
+```
 
-* System dependencies
+Then, open your browser and navigate to `http://localhost:3000`
 
-* Configuration
+### How to run on Heroku
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ heroku create
+$ heroku addons:create heroku-postgresql:hobby-dev
+$ heroku buildpacks:add --index 1 heroku/nodejs
+$ heroku buildpacks:add --index 2 heroku/ruby
+$ git push heroku master
+$ heroku run rake db:migrate
+$ heroku open
+```
