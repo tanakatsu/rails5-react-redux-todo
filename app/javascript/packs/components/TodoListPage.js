@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Footer from './Footer'
 import VisibleTodoList from '../containers/VisibleTodoList'
 
@@ -11,5 +11,5 @@ const TodoListPage = () => (
   </div>
 )
 
-export default withRouter(TodoListPage)
+export default TodoListPage
 

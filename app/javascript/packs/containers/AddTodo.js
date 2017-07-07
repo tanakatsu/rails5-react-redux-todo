@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Link, Redirect } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import { createTodoAsync, unsetRedirect } from '../actions'
 import history from '../history'
 
@@ -55,4 +55,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(AddTodo))
+export default connect(mapStateToProps)(AddTodo)

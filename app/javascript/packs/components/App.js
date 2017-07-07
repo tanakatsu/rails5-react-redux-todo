@@ -1,6 +1,6 @@
 import React from 'react'
-//import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom"
-import { Router, Route, Switch, withRouter } from "react-router-dom"
+//import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { Router, Route, Switch } from "react-router-dom"
 import AddTodo from '../containers/AddTodo'
 import TodoListPage from './TodoListPage'
 import history from '../history'
